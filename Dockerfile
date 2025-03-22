@@ -1,14 +1,16 @@
-# Usa Ubuntu 24.04 (ya incluye GLIBC 2.35)
+# Usa Ubuntu 24.04 con GLIBC 2.35
 FROM ubuntu:24.04
 
-# Instalar herramientas necesarias
+# Actualizar paquetes e instalar dependencias adicionales
 RUN apt update && apt install -y \
     python3 python3-pip \
     wget curl git \
-    build-essential cmake unzip
+    build-essential cmake unzip \
+    gcc g++ libstdc++6
 
-# Instalar GPT4All y Streamlit
-RUN pip install --upgrade pip && pip install streamlit gpt4all
+# Instalar Streamlit y GPT4All
+RUN python3 -m pip install --no-cache-dir --upgrade pip && \
+    pip install --no-cache-dir streamlit gpt4all
 
 # Crear directorio de trabajo y copiar archivos
 WORKDIR /app
