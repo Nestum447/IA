@@ -1,14 +1,14 @@
-# Usa Debian Testing, que tiene GLIBC 2.35
-FROM debian:testing
+# Usa Ubuntu 24.04 (ya incluye GLIBC 2.35)
+FROM ubuntu:24.04
 
 # Instalar herramientas necesarias
 RUN apt update && apt install -y \
     python3 python3-pip \
     wget curl git \
-    build-essential cmake unzip 
+    build-essential cmake unzip
 
-# Corregir instalación de paquetes Python
-RUN python3 -m pip install --upgrade pip && pip install --no-cache-dir streamlit gpt4all
+# Instalar GPT4All y Streamlit
+RUN pip install --upgrade pip && pip install streamlit gpt4all
 
 # Crear directorio de trabajo y copiar archivos
 WORKDIR /app
