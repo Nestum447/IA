@@ -7,8 +7,8 @@ RUN apt update && apt install -y \
     wget curl git \
     build-essential cmake unzip 
 
-# Instalar GPT4All y Streamlit
-RUN pip install --upgrade pip && pip install streamlit gpt4all
+# Corregir instalación de paquetes Python
+RUN python3 -m pip install --upgrade pip && pip install --no-cache-dir streamlit gpt4all
 
 # Crear directorio de trabajo y copiar archivos
 WORKDIR /app
