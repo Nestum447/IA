@@ -1,5 +1,5 @@
-# Usa Ubuntu 22.04, que tiene GLIBC 2.35
-FROM ubuntu:22.04
+# Usa Debian Testing, que tiene GLIBC 2.35
+FROM debian:testing
 
 # Instalar herramientas necesarias
 RUN apt update && apt install -y \
