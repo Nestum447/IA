@@ -1,5 +1,8 @@
 import streamlit as st
-from gpt4all import GPT4All
+import gpt4all
+gpt = gpt4all.GPT4All()
+
+
 
 # Cargar el modelo (ajusta la ruta si es necesario)
 modelo = GPT4All("models/gpt4all-falcon-q4_0.gguf")
